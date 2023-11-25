@@ -1,3 +1,4 @@
+<!-- Navbar da segunda parte do sistema (com autenticação) -->    
 <nav class="navbar fixed-top" style="background-color: #3C5BBF">
     <div class="container-fluid">
         <a class="navbar-brand" href="/home">
@@ -66,15 +67,16 @@
                         Pedidos
                     </a>
                 </li>
-                <li class="nav-item active flex-sm-fill" id="navbar-topicos">
-                    <a class="nav-link" href="/dashboard/suporte" id="navbar-topicos-nome">
-                        <i class="bi bi-headset">
-                            <img src="{{ asset('storage/imagens/headset.svg') }}" />
-                        </i>
-                        Suporte
-                    </a>
-                </li>
             @endif
+            <li class="nav-item active flex-sm-fill" id="navbar-topicos">
+                <a class="nav-link" href="/dashboard/suporte" id="navbar-topicos-nome">
+                    <i class="bi bi-headset">
+                        <img src="{{ asset('storage/imagens/headset.svg') }}" />
+                    </i>
+                    Suporte
+                </a>
+            </li>
+
             @if (Auth::user()->tipo == 4)
                 <li class="nav-item active flex-sm-fill" id="navbar-topicos">
                     <a class="nav-link" href="{{ route('avaliaCliente') }}" id="navbar-topicos-nome">
@@ -84,7 +86,7 @@
                         Avaliação
                     </a>
                 </li>
-                
+
                 <li class="nav-item active flex-sm-fill" id="navbar-topicos">
                     <a class="nav-link" href="/dashboard/funcionalidades" id="navbar-topicos-nome">
                         <i class="bi bi-link-45deg">

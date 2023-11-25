@@ -16,7 +16,12 @@ class HomeController extends Controller
     }
 
     /* Identifica o tipo de usuário que fez login
-    E direciona para seu devido dashboard */
+    E direciona para seu devido dashboard 
+    -- TIPOS:
+    --> 1: Cliente
+    --> 2: Prestador de Serviço
+    --> 3: Administrador (cadastrados automaticamente no BD)
+    */
     public function index()
     {
         if (Auth::user()->tipo == '1') {

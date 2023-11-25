@@ -1,3 +1,5 @@
+<!-- Formulário para cadastro de um serviço
+    Campos: nome do serviço, foto do serviço -->
 @extends('sistema.layout.layoutDash')
 @section('title', 'Adm | Estragou, e agora?')
 @section('content')

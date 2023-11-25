@@ -1,6 +1,9 @@
+<!-- Dashboard do cliente - apresenta todos os serviços cadastrados e apresenta
+    botões para solicitar um pedido de determinado serviço -->
 @extends('sistema.layout.layoutDash')
 @section('title', 'Home | Estragou, e agora?')
 @section('content')
+<!-- div que permite aparecer mensagem de sucesso ou erro na página -->    
     <div class="container">
         <div class="card border" style="margin-top: 60px; border: none; background-color: #28a745; ">
             @if (session()->get('danger'))

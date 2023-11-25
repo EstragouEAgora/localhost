@@ -1,6 +1,10 @@
+<!--Página que mostra a avaliação do prestador escolhido (na forma de estrelas) e
+        que apresenta um botão para o cliente avaliá-lo.
+    -->
 @extends('sistema.layout.layoutDash')
 @section('title', 'Avaliação | Estragou, e agora?')
 @section('content')
+    <!-- div que permite aparecer mensagem de sucesso ou erro na página -->
     <div class="container">
         <div class="card border" style="margin-top: 60px; border: none;">
             @if (session()->get('danger'))
@@ -17,6 +21,7 @@
             @endif
         </div>
     </div>
+
     <div class="container">
         <p class="h1 text-start" id="titulo-da-pagina" style="margin-top: 50px"><b>Avaliação - Prestadores de Serviço</b></p>
         @foreach ($dados as $item)

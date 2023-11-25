@@ -1,3 +1,4 @@
+<!-- Navbar da primeira parte do sistema (sem autenticação) -->    
 <nav class="navbar flex-column flex-sm-row navbar-expand-lg">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

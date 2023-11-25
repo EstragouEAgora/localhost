@@ -1,3 +1,4 @@
+<!-- Primeira página do sistema -->
 @extends('sistema.layout.layout')
 @section('title','Home | Estragou, e agora?')
 @section('content')

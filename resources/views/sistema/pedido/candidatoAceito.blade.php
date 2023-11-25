@@ -1,3 +1,6 @@
+<!-- Página que mostra os dados do candidato que foi aceito pelo cliente em 
+    determinado pedido. Os dados mostrados são: foto de perfil, apelido,
+    telefone e email -->    
 @extends('sistema.layout.layoutDash')
 @section('title', 'Candidato | Estragou, e agora?')
 @section('content')

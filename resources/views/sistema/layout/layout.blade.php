@@ -1,3 +1,4 @@
+<!-- Layout da primeira parte do sistema (sem autenticação) -->    
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

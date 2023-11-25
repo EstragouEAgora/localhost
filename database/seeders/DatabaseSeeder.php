@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
+    /*
+    Dados que devem ser cadastrados previamente no BD
      */
     public function run(): void
     {
+        // Os dois administradores do sistema
         DB::table('users')->insert([
             'id' => 1,
             'name' => 'Acsa Silveira',
@@ -44,6 +45,12 @@ class DatabaseSeeder extends Seeder
             'created_at' => '2023-08-15 19:31:17',
             'updated_at' => '2023-08-15 19:32:17'
         ]);
+
+        /* Os serviços atendidos pela plataforma:
+            Eletricista; Encanador; Jardineiro;
+            Limpador de Caixa D'água; Limpador de Caixa de Gordura;
+            Limpador de Piscina; Pintor;
+            */
         DB::table('servicos')->insert([
             'id' => 1,
             'nomeServico' => 'Eletricista',

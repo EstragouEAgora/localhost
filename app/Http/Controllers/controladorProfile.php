@@ -127,6 +127,7 @@ class controladorProfile extends Controller
         return view('sistema.avaliacao.avaliacaoCliente', compact('dados'));
     }
 
+    /* Envia para uma página de avaliação do prestador */
     public function editAv(string $id, string $pedido_id)
     {
         $dados = User::find($id);
@@ -138,6 +139,7 @@ class controladorProfile extends Controller
         }
     }
 
+    /* Atualiza a avaliação do prestador no Banco de Dados */
     public function updateAv(Request $request, string $id, string $pedido_id)
     {
         $dados = User::find($id);

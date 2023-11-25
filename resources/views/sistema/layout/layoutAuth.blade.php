@@ -1,3 +1,4 @@
+<!-- Layout dos formulários de autenticação do sistema (register e login) -->    
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,6 +10,8 @@
 </head>
 </head>
 <body>
+    @component('sistema.navbar.navbarInicial')
+    @endcomponent
     <main role="main" class="py-4">
         @hasSection('content')
             @yield('content')

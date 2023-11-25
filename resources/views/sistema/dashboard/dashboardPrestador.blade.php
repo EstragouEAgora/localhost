@@ -1,6 +1,10 @@
+<!-- Dashboard do prestador - apresenta os dados de todos os pedidos cadastrados 
+    para os serviços que o profissional logado presta e apresenta a opção de
+    candidatar-se a eles. -->
 @extends('sistema.layout.layoutDash')
 @section('title', 'Home | Estragou, e agora?')
 @section('content')
+    <!-- div que permite aparecer mensagem de sucesso ou erro na página -->
     <div class="container" style="margin-top: 150px">
         <div class="card border" style="margin-top: 60px; border: none; background-color: #28a745; ">
             @if (session()->get('danger'))
@@ -34,9 +38,11 @@
                                             style="max-width: 180px; max-height: 300px">
                                     @endif
                                     <p class="card-text"><b>Descrição:</b>{{ $value->descricaoPedido }}</p>
-                                    <p class="card-text"><b>Cliente:</b></p>
-                                    <img src="/storage/{{ $value->user->fotoPerfil }}" />
-                                    <p class="card-text">{{ $value->user->name }}</p>
+                                    <p class="card-text"><b>Cliente: {{ $value->user->apelido }}</b> -
+                                        {{ $value->user->name }}</p>
+                                    <img class="h5 card-icon" src="/storage/{{ $value->user->fotoPerfil }}"
+                                        style="max-width: 100px; max-height: 200px" />
+                                    <br>
                                     @if ($value->user->avaliacao != 5)
                                         @if ($value->user->avaliacao == 6)
                                             <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
@@ -60,7 +66,7 @@
                                         @endfor
                                     @endif
                                     <p class="card-text"><b>Endereço:</b>{{ $value->endereco }}</p>
-                                    <p class="card-text"><b>Valor:</b> R$ {{ $value->valorPedido }}</p>
+                                    <p class="card-text"><b>Valor Sugerido:</b> R$ {{ $value->valorPedido }}</p>
                                     <form method="POST" action="/dashboard/pedidos/candidatar/{{ $value->id }}">
                                         @csrf
                                         <div class="campo-novo-valor" style="display: none;"

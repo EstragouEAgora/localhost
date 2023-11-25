@@ -1,3 +1,5 @@
+<!-- Página que mostra a lita de candidatos que se inscreveram em determinado
+    pedido (antes do cliente aceitar/escolher um) -->
 @extends('sistema.layout.layoutDash')
 @section('title', 'Candidatos | Estragou, e agora?')
 @section('content')

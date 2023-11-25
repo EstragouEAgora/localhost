@@ -1,3 +1,4 @@
+<!-- Não está sendo utilizado no sistema ainda! -->
 @extends('sistema.layout.layoutDash')
 @section('title', 'Home | Estragou, e agora?')
 @section('content')
@@ -7,20 +8,13 @@
                 contato entre clientes e prestadores de serviços. Aqui estão algumas das principais características do nosso
                 site:</b></p>
         <p id="func-topicos"><b>1. Cadastro de usuários:</b> Os clientes e prestadores de serviços podem se cadastrar em
-            nosso site, criando um perfil com informações relevantes, como nome, localização e área de atuação.</p>
-        <p id="func-topicos"><b> 2. Busca de prestadores de serviços:</b> Os clientes podem realizar pesquisas personalizadas
-            para encontrar prestadores de serviços com base em sua localização, área de atuação e outras informações
-            relevantes. Isso permite encontrar profissionais qualificados e confiáveis.</p>
-        <p id="func-topicos"><b>3. Exibição de informações de contato:</b> Os clientes podem acessar as informações de
-            contato dos prestadores de serviços em seus perfis, como número de telefone ou endereço de e-mail, para entrar
-            em contato diretamente com eles fora do site.</p>
-        <p id="func-topicos"><b>4. FAQ e suporte:</b> Disponibilizamos uma seção de perguntas frequentes (FAQ) com respostas
-            para as dúvidas mais comuns. Além disso, oferecemos suporte por meio de um formulário de contato dedicado, onde
-            os usuários podem enviar suas perguntas e receber assistência personalizada da nossa equipe de suporte.</p>
-        <p id="func-topicos"><b>5. Gerenciamento de serviços:</b> Tanto os clientes quanto os prestadores de serviços têm
-            acesso a uma área de gerenciamento de serviços, onde podem acompanhar os pedidos, agendar compromissos,
-            visualizar histórico de interações e gerenciar suas informações de perfil.</P>
-        <p id="func-topicos"><b>6. Notificações:</b> Enviamos notificações por e-mail para manter os usuários informados
-            sobre atualizações importantes, confirmações de agendamentos, entre outros.</p>
+            nosso site, criando um perfil com informações relevantes, como nome, apelido e serviços prestados (prestadores de serviços).</p>
+        <p id="func-topicos"><b>2. Diversas opções de prestadores para escolher:</b> Ao submeter seu pedido na plataforma, os
+            clientes podem escolher entre várias opções de profissionais aquele que pretende contratar com base em seus
+            próprios critérios como preço oferecido, avaliação, etc.</p>
+        <p id="func-topicos"><b>5. Gerenciamento de pedidos:</b> Os clientes têm uma área onde gerenciam seus pedidos,
+            podendo editá-los e verificar os prestadores de serviço que se candidataram. Além disso, os prestadores de
+            serviço podem se candidatar para diferentes pedidos de acordo com sua área de atuação como encanador,
+            eletricista, etc.</P>
     </div>
 @endsection

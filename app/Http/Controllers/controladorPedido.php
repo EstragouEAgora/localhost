@@ -6,16 +6,13 @@ use App\Models\Candidatos;
 use App\Models\Pedido;
 use App\Models\Servico;
 use App\Models\User;
-use App\Models\User_Servico;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
 class controladorPedido extends Controller
 {
-    /* Contém as regras de validação */
+    /* Contém as regras de validação para o cadastro de um pedido */
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -71,6 +68,9 @@ class controladorPedido extends Controller
         return redirect('/dashboard/pedidos')->with('success', 'Seu pedido foi cadastrado com sucesso!');
     }
 
+    /* Essa função retorna os dados do candidato aceito pelo cliente para aquele pedido.
+        Além de alterar o status do pedido o que não permite que outros prestadores possam
+        se candidatar para ele.  */
     public function aceitar(Request $request, $user_id, $pedido_id)
     {
         $candidato = Candidatos::where('pedido_id', '=', $pedido_id)
@@ -85,6 +85,8 @@ class controladorPedido extends Controller
         return view('sistema.pedido.candidatoAceito', compact('candidato'));
     }
 
+    /* Essa função apaga a lista dos candidatos de um pedido (exceto o aceito pelo cliente) para não
+        confundir o usuário e redireciona para a página dos pedidos do cliete. */
     public function apagarCandidatos(Request $request, $user_id, $pedido_id)
     {
         $candidato = User::find($user_id);
@@ -121,9 +123,7 @@ class controladorPedido extends Controller
         return redirect('sistema.pedido.listaPedidosCliente')->with('danger', 'Erro ao redirecionar à página de edição!');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    /* Atualiza o pedido no Banco de Dados */
     public function update(Request $request, string $id)
     {
         $validator = $this->validator($request->all());
@@ -157,8 +157,7 @@ class controladorPedido extends Controller
         return redirect('/dashboard/pedidos')->with('success', 'Pedido editado com sucesso');
     }
 
-
-    /* Apagar o pedido */
+    /* Apagar o pedido - não é utilizada no site ainda */
     public function destroy(string $id)
     {
         $dados = Pedido::find($id);

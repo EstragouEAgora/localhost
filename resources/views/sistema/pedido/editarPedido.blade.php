@@ -1,3 +1,5 @@
+<!-- Formulário para edição do pedido
+    Campos: descrição do pedido, endereço, foto (opcional), valor sugerido (opcional) -->
 @extends('sistema.layout.layoutDash')
 @section('title', 'Home | Estragou, e agora?')
 @section('content')
@@ -64,7 +66,7 @@
 
                 <div class="form-group">
                     <label for="valorPedido" class="h5"
-                        style="margin-left: 15px;margin-top: 20px;margin-top: 20px;">Valor (R$):</label>
+                        style="margin-left: 15px;margin-top: 20px;margin-top: 20px;">Valor Sugerido (R$):</label>
                     <p id="card-descricao-label-subtitulo"style="margin-left: 15px">Digite nesse formato: 99.90</p>
                     <div id="card-descricao-valor">
                         <input id="valorPedido" type="text" class="form-control valor" name="valorPedido"

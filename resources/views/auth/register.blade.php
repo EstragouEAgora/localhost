@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-sm-5">
-            <img src="{{ asset('storage/imagens/bichoAuth.png') }}" style="margin-top: 190px; width: 100%" />
+            <img src="{{ asset('storage/imagens/bichoAuth.png') }}" style="width: 102%; height: 100%" />
         </div>
         <div class="col-sm-7" style="background-color: #3C5BBF">
             <div class="container">
@@ -122,7 +122,7 @@
                         <p style="color: white" id="titulo"><b>Já tem uma conta? <a style="color: #F2AA31"
                                     href="{{ route('login') }}">Faça Login</a></b></p>
                     </div>
-                    <div class="col-md-8 offset-md-4" stlayouts.appyle="background-color: #3C5BBF; margin-botton: 50px">
+                    <div class="col-md-8 offset-md-4" style="background-color: #3C5BBF; margin-bottom: 50px">
                         <button type="submit" class="btn btn-primary my-2 my-sm-0" id="botao-cad-login">
                             {{ __('Registrar') }}
                         </button>

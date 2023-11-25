@@ -1,3 +1,4 @@
+<!-- Layout criado durante o deploy no Hostinger - não está sendo utilizado -->    
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

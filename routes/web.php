@@ -79,6 +79,7 @@ Route::get('/pedidos/aceitar/{user_id}/{pedido_id}', [App\Http\Controllers\contr
 
 Route::get('/pedidos/salvar/{user_id}/{pedido_id}', [App\Http\Controllers\controladorPedido::class, 'apagarCandidatos']);
 
+
 // Controller do Candidato
 
 Route::post('/dashboard/pedidos/candidatar/{pedido_id}', [App\Http\Controllers\controladorCandidatos::class, 'store'])->name('candidatar');
@@ -100,6 +101,7 @@ Route::post('/servico/update/{id}', [App\Http\Controllers\controladorServico::cl
 
 Route::get('/servico/delete/{id}', [App\Http\Controllers\controladorServico::class, 'destroy'])->name('deletaServico');
 
+
 //Controller do Profile
 
 Route::get('/dashboard/perfil', [App\Http\Controllers\controladorProfile::class, 'index'])->name('perfil');
@@ -113,7 +115,7 @@ Route::get('/dashboard/avaliar/{id}/{pedido_id}', [App\Http\Controllers\controla
 Route::post('/dashboard/avaliando/{id}/{pedido_id}', [App\Http\Controllers\controladorProfile::class, 'updateAv'])->name('gravaAvaliacao');
 
 
-// Para rodar as imagens no site
+// Para rodar as imagens no site - usado no deploy no Hostinger
 Route::get('/storage', function(){
     return \Illuminate\Support\Facades\Artisan::call('storage:link');
 });

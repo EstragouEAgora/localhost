@@ -1,6 +1,9 @@
+<!-- Dashboard do administrador - apresenta todos os serviços cadastrados e apresenta
+    botões para editar, apagar ou cadastrar um novo serviço -->
 @extends('sistema.layout.layoutDash')
 @section('title', 'Adm | Estragou, e agora?')
 @section('content')
+<!-- div que permite aparecer mensagem de sucesso ou erro na página -->    
     <div class="container">
         <div class="card border" style="margin-top: 60px; border: none; background-color: #28a745; ">
             @if (session()->get('danger'))

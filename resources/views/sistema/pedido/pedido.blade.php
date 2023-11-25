@@ -1,3 +1,5 @@
+<!-- Formulário para o cadastro de um pedido 
+    Campos: descrição do pedido, endereço, foto (opcional), valor sugerido (opcional) -->
 @extends('sistema.layout.layoutDash')
 @section('title', 'Novo pedido | Estragou, e agora?')
 @section('content')
@@ -68,7 +70,7 @@
 
             <div class="form-group">
                 <label for="valorPedido" class="h4 label-align"
-                    style="margin-left: 10px ;margin-right: 30px; margin-top: 20px;">Valor (opcional):</label>
+                    style="margin-left: 10px ;margin-right: 30px; margin-top: 20px;">Valor Sugerido (opcional):</label>
                 <p id="card-descricao-label-subtitulo">Em reais (R$)</p>
                 <div id="card-descricao-valor">
                     <input id="valorPedido" type="text" class="form-control valor" name="valorPedido"

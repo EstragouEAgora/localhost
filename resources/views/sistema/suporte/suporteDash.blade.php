@@ -1,3 +1,4 @@
+<!-- Página que tem como objetivo apresentar onde procurar suporte (com autenticação) -->
 @extends('sistema.layout.layoutDash')
 @section('title','Home | Estragou, e agora?')
 @section('content')
