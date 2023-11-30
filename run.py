@@ -37,5 +37,4 @@ else:
     sleep(5)
     p3 = Popen('start http://127.0.0.1:8000', shell=True)
 
-system("php artisan createadm")
 system("php artisan storage:link")

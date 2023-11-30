@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidatos;
 use App\Models\Servico;
 use App\Models\User;
 use App\Models\User_Servico;
@@ -33,7 +34,6 @@ class controladorProfile extends Controller
                 return view('auth.profile', compact('dados', 'servicosPrestados', 'servicos'));
 
             }
-            
 
         } else {
             return view('auth.profile', compact('dados'));
@@ -128,18 +128,26 @@ class controladorProfile extends Controller
     }
 
     /* Envia para uma página de avaliação do prestador */
-    public function editAv(string $id, string $pedido_id)
+    public function editAvForm(string $id, string $pedido_id)
     {
         $dados = User::find($id);
         $dados->pedido = $pedido_id;
         if (isset($dados)) {
-            return view('sistema.avaliacao.avaliarPrestador', compact('dados'));
+            return view('sistema.avaliacao.avaliar', compact('dados'));
         } else {
-            return redirect('/home')->with('danger', 'Não será possível avaliar Prestador!');
+            return redirect('/home')->with('danger', 'Não será possível avaliar!');
         }
     }
 
-    /* Atualiza a avaliação do prestador no Banco de Dados */
+    /* Envia para uma página de avaliação do cliente */
+    public function editAvCliente()
+    {
+        $pedidos = Candidatos::where('candidatos.user_id', '=', Auth::User()->id)
+            ->join('pedidos', 'candidatos.pedido_id', '=', 'pedidos.id')->get();
+        return view('sistema.avaliacao.avaliacaoCliente', compact('pedidos'));
+    }
+
+    /* Atualiza a avaliação do prestador/cliente no Banco de Dados */
     public function updateAv(Request $request, string $id, string $pedido_id)
     {
         $dados = User::find($id);
@@ -157,10 +165,16 @@ class controladorProfile extends Controller
             $dados->fotoPerfil = $dados->fotoPerfil;
             $dados->save();
             $user_id = $id;
+            if(Auth::User()->tipo == 1){
             return redirect('/dashboard/pedidos')->with('success', 'Avaliação registrada com sucesso!');
+            } else{
+                return redirect('/dashboard/avaliacao')->with('success', 'Avaliação registrada com sucesso!');
+            }
         } else {
             return redirect('/dashboard/avaliacao')->with('danger', 'Não foi possível gravar sua avaliação!');
         }
     }
+
+    
 
 }

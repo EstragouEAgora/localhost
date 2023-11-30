@@ -20,67 +20,55 @@
                 </div><br />
             @endif
         </div>
-    </div>
-
-    <div class="container">
-        <p class="h1 text-start" id="titulo-da-pagina" style="margin-top: 50px"><b>Avaliação - Prestadores de Serviço</b></p>
-        @foreach ($dados as $item)
-            <div class="col-md-4 mb-3">
-                <div class="card shadow-sm" style="width: 18rem;">
-                    <img class="card-img-top" src="/storage/{{ $item->fotoPerfil }}">
-                    <div class="card-body">
-                        <h5 class="txt-card-dash-cliente"><b>{{ $item->apelido }}</b></h5>
-                        @if ($item->avaliacao != 5)
-                            @if ($item->avaliacao == 6)
-                                <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
-                                <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
-                                <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
-                                <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
-                                <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
-                                <p>Ainda não avaliado!</p>
-                                <a href="/dashboard/avaliar/{{ $item->id }}">
+        <p class="h1 text-start" id="titulo-da-pagina"><b>Avaliação dos clientes</b></p>
+        @forelse ($pedidos as $item)
+            @if ($item->status == 1)
+                <p id="subtitulo-da-pagina">Esses são os clientes aos quais você se candidatou...</p>
+                <div class="row">
+                    <div class="col-md-12 mb-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p class="h5 card-title" style="color: #3c5bbf; font-weight: bold;">
+                                    {{ $item->user->apelido }}
+                                <p class="card-text"><b>Nome: </b>{{ $item->user->name }}</p>
+                                <img class="h5 card-icon" src="/storage/{{ $item->user->fotoPerfil }}"
+                                    style="max-width: 100px; max-height: 200px" />
+                                <br>
+                                @if ($item->user->avaliacao != 5)
+                                    @if ($item->user->avaliacao == 6)
+                                        <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
+                                        <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
+                                        <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
+                                        <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
+                                        <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
+                                        <p>Ainda não avaliado!</p>
+                                    @else
+                                        @for ($i = 0; $i < $item->user->avaliacao; $i++)
+                                            <img src="{{ asset('storage/imagens/star-fill.svg') }}" style="width: 2rem;">
+                                        @endfor
+                                        @for ($i = 0; $i < $item->user->resto; $i++)
+                                            <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
+                                        @endfor
+                                    @endif
+                                @else
+                                    @for ($i = 0; $i < $item->user->avaliacao; $i++)
+                                        <img src="{{ asset('storage/imagens/star-fill.svg') }}" style="width: 2rem;">
+                                    @endfor
+                                @endif
+                                <a href="/dashboard/avaliar/{{ $item['user_id'] }}/{{ $item['id'] }}">
                                     <button class="btn btn-secondary" id="botaozin-padrao">
                                         Avaliar
                                     </button>
                                 </a>
-                            @elseif ($item->avaliacao == 0)
-                                <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
-                                <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
-                                <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
-                                <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
-                                <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
-                                <a href="/dashboard/avaliar/{{ $item->id }}">
-                                    <button class="btn btn-secondary" id="botaozin-padrao">
-                                        Avaliar
-                                    </button>
-                                </a>
-                            @else
-                                @for ($i = 0; $i < $item->avaliacao; $i++)
-                                    <img src="{{ asset('storage/imagens/star-fill.svg') }}" style="width: 2rem;">
-                                @endfor
-                                @for ($i = 0; $i < $item->resto; $i++)
-                                    <img src="{{ asset('storage/imagens/star.svg') }}" style="width: 2rem;">
-                                @endfor
-                                <a href="/dashboard/avaliar/{{ $item->id }}">
-                                    <button class="btn btn-secondary" id="botaozin-padrao">
-                                        Avaliar
-                                    </button>
-                                </a>
-                            @endif
-                        @else
-                            @for ($i = 0; $i < $item->avaliacao; $i++)
-                                <img src="{{ asset('storage/imagens/star-fill.svg') }}" style="width: 2rem;">
-                            @endfor
-                            <a href="/dashboard/avaliar/{{ $item->id }}">
-                                <button class="btn btn-secondary" id="botaozin-padrao">
-                                    Avaliar
-                                </button>
-                            </a>
-                        @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-    </div>
-    @endforeach
+            @endif
+        @empty
+            <p class="h1 text-start" id="subtitulo-da-pagina"><b>Você ainda não pode avaliar ninguém...</b></p>
+            <p id="subtitulo-da-pagina">Candidate-se a algum serviço primeiro e depois de prestá-lo, poderá avaliar seu
+                cliente...</p>
+        @endforelse
     </div>
 @endsection

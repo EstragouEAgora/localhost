@@ -1,4 +1,4 @@
-<!-- Navbar da segunda parte do sistema (com autenticação) -->    
+<!-- Navbar da segunda parte do sistema (com autenticação) -->
 <nav class="navbar fixed-top" style="background-color: #3C5BBF">
     <div class="container-fluid">
         <a class="navbar-brand" href="/home">
@@ -77,7 +77,7 @@
                 </a>
             </li>
 
-            @if (Auth::user()->tipo == 4)
+            @if (Auth::user()->tipo == 2)
                 <li class="nav-item active flex-sm-fill" id="navbar-topicos">
                     <a class="nav-link" href="{{ route('avaliaCliente') }}" id="navbar-topicos-nome">
                         <i class="bi bi-house">
@@ -86,16 +86,16 @@
                         Avaliação
                     </a>
                 </li>
-
-                <li class="nav-item active flex-sm-fill" id="navbar-topicos">
-                    <a class="nav-link" href="/dashboard/funcionalidades" id="navbar-topicos-nome">
-                        <i class="bi bi-link-45deg">
-                            <img src="{{ asset('storage/imagens/link.svg') }}" />
-                        </i>
-                        Funcionalidades
-                    </a>
-                </li>
             @endif
+            <li class="nav-item active flex-sm-fill" id="navbar-topicos">
+                <a class="nav-link" href="/dashboard/funcionalidades" id="navbar-topicos-nome">
+                    <i class="bi bi-link-45deg">
+                        <img src="{{ asset('storage/imagens/link.svg') }}" />
+                    </i>
+                    Funcionalidades
+                </a>
+            </li>
+
             <li class="nav-item active flex-sm-fill" id="navbar-topicos">
                 <a class="nav-link" href="/dashboard/perfil" id="navbar-topicos-nome">
                     <i class="bi bi-gear">
